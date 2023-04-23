@@ -1,0 +1,104 @@
+body{
+    background-color: rgb(0, 0, 0);
+    width: 100vw;
+    height: 200%; 
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 26% 26% 26%;
+    grid-gap: 2rem;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.inner{
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.inner:hover{
+    box-shadow: rgb(32, 152, 209) 0px 0px 10px 3px, rgb(0, 0, 0) 0px 0px 10px;
+}
+
+.inner:nth-child(1){
+    background: url(https://finmavis.github.io/swapi-task/static/media/bg-card-1.0c96fd00.png); 
+}
+
+.inner:nth-child(2){
+    background: url(https://finmavis.github.io/swapi-task/static/media/bg-card-2.b0a7b209.png); 
+}
+
+.inner:nth-child(3){
+    background: url(https://finmavis.github.io/swapi-task/static/media/bg-card-3.1914d853.png); 
+}
+
+.inner:nth-child(4){
+    background: url(https://finmavis.github.io/swapi-task/static/media/bg-card-4.c21c4d4b.png); 
+}
+
+.inner:nth-child(5){
+    background: url(https://finmavis.github.io/swapi-task/static/media/bg-card-5.67d061d6.png); 
+}
+
+.inner:nth-child(6){
+    background: url(https://finmavis.github.io/swapi-task/static/media/bg-card-6.b4fea25d.png); 
+}
+
+h3{
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.date{
+   color: rgb(157, 157, 157);
+   margin: 0;
+}
+
+.text{
+    width: 100%;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: 1.124rem;
+    color: white;
+}
+
+hr{
+    border: none;
+    height: 2px ;
+    background-color: rgb(142, 46, 46);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 232, 31);
+}
+  
+
+@media(max-width: 1100px) {
+    .grid{
+        grid-template-columns: 35% 35%;
+    }
+    
+  }
+
+@media(max-width: 850px){
+    .grid{
+        grid-template-columns: 50% ;
+    }
+}
+
+@media(max-width: 650px){
+    .grid{
+        grid-template-columns: 80% ;
+    }
+
+    Logo{
+        width: 80%;
+    }
+}
