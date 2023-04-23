@@ -1,43 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import './Fetch.css'
-import { Logo } from './Logo'
+import { Logo } from './components/Icons/Logo'
+import Movies from './components/Movies'
 
 export const Fetch = () => {
   const [records, setRecord] = useState([])
+const [loading, setLoading] = useState(false)
+const [error, setError] = useState("")
 
   useEffect(()=>{
-    fetch('https://swapi.dev/api/films')
+    setLoading(true)
+    const fetchMovies = async () => await fetch('https://swapi.dev/api/films')
     .then(response => response.json())
     .then(data => setRecord(data.results))
+    .catch(error => setError("An error occured"))
+    .finally(() => setLoading(false))
+    fetchMovies()
   }, [])
-
-  function truncate(str, maxLength = 263) {
-    if (str.lenght <= maxLength) return str;
-
-    const truncated = str.substring(0, maxLength -3);
-    const ellipsis = "...";
-    return truncated + ellipsis;
-  }
-
   
   return (
     
-    <body>
+    // <body>
+    <div>
       <Logo/>
-      <div className='grid'> 
-          {records.map((list, index)=>(
-            <div className='inner'>
-              <h3 key={index}>{list.title}</h3>
-              <p className='date' key={index}>{new Date(list.release_date).toLocaleString('en-US',{month:'long',day:'numeric',year:'numeric'})}</p>
-              <p className='text' onLoad={truncate} key={index}>{truncate(list.opening_crawl)}</p>
-              <hr/>
-                <a href="#">More Info</a>
-            </div>
-
-            
-
-          ))}
+      {error ? "An error occured" : null}
+      {loading ? <div className='loader'>Movies loading</div> : records.length > 0 ? <Movies records={records}/> : <div className='loader'>No Movies</div>}
       </div>
-    </body>
+    // </body>
   )
 }
